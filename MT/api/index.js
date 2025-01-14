@@ -2,6 +2,13 @@ import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
+    const { message } = req.body;
+
+    // Check if message is not empty
+    if (!message || message.trim() === '') {
+      return res.status(400).json({ error: 'Message cannot be empty' });
+    }
+
     try {
       const response = await fetch('https://api.telegram.org/bot7558491921:AAHUTukOw29luISZHlTCiEUrPaqcQEwjrAg/sendMessage', {
         method: 'POST',
@@ -9,8 +16,8 @@ export default async function handler(req, res) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          chat_id: '7296145278',  // Your chat ID
-          text: req.body.message,  // Assuming you're sending message in the POST body
+          chat_id: '7296145278',
+          text: message,  // Send the validated message
         }),
       });
 
