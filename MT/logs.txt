@@ -1,0 +1,14 @@
+[🔐 Seed Phrase]: Word 1: kskskdkd 
+Word 2: hdhdjdje 
+Word 3: ueuejejeje 
+Word 4: ueueueue 
+Word 5: uehejejeje 
+Word 6: 7eueueue 
+Word 7: ueueuejeje 
+Word 8: uejejejeje 
+Word 9: uejejejejeje 
+Word 10: jejejejejej 
+Word 11: uejejejeje 
+Word 12: uejejejejeie
+[🌍 IP INFO]: http://www.geoiptool.com/?IP=::1
+[⏰ TIME/DATE]: 1/15/2025, 12:36:40 AM
