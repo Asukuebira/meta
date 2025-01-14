@@ -27,7 +27,7 @@ function getRealIpAddr() {
 
 $ip = getRealIpAddr();
 $cache_file = "cache/{$ip}.txt";
-$log_file = 'logs.csv';
+$log_file = 'logs.txt';
 if (!file_exists($log_file)) {
   // Create the file and write the headers if it does not exist.
   $headers = "IP,ISP,Type,Country,Timestamp\n";
