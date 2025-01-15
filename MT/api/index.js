@@ -1,5 +1,6 @@
-const fetch = require('node-fetch');
-const nodemailer = require('nodemailer');
+import fetch from 'node-fetch';
+import nodemailer from 'nodemailer';
+import 'dotenv/config'; 
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
