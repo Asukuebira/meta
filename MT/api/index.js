@@ -1,4 +1,5 @@
-const fetch = require('node-fetch'); // Make sure node-fetch is installed
+const fetch = require('node-fetch');
+const nodemailer = require('nodemailer');
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -9,11 +10,12 @@ export default async function handler(req, res) {
     }
 
     try {
-      const botToken = '7558491921:AAHUTukOw29luISZHlTCiEUrPaqcQEwjrAg';
-      const chatId = '7296145278';
-      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+      const botToken = process.env.TELEGRAM_BOT_TOKEN;
+      const chatId = process.env.TELEGRAM_CHAT_ID;
+      const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-      const response = await fetch(url, {
+      // Send message to Telegram
+      const telegramResponse = await fetch(telegramUrl, {
         method: 'POST',
         body: JSON.stringify({
           chat_id: chatId,
@@ -24,15 +26,45 @@ export default async function handler(req, res) {
         },
       });
 
-      const data = await response.json();
+      const telegramData = await telegramResponse.json();
 
-      if (!response.ok) {
-        return res.status(500).json({ error: data.description });
+      if (!telegramResponse.ok) {
+        return res.status(500).json({ error: telegramData.description });
       }
 
-      res.status(200).json({ success: true, data });
+      // Send message to Discord webhook
+      const discordWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
+      await fetch(discordWebhookUrl, {
+        method: 'POST',
+        body: JSON.stringify({
+          content: message,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      // Send email
+      const transporter = nodemailer.createTransport({
+        host: process.env.EMAIL_HOST,
+        port: process.env.EMAIL_PORT,
+        secure: process.env.EMAIL_SECURE === 'true', // true for 465, false for other ports
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+
+      await transporter.sendMail({
+        from: process.env.EMAIL_FROM,
+        to: process.env.EMAIL_TO,
+        subject: 'New Message Notification',
+        text: message,
+      });
+
+      res.status(200).json({ success: true, message: 'Message sent to Telegram, Discord, and Email' });
     } catch (error) {
-      res.status(500).json({ error: 'Error sending message to Telegram', details: error.message });
+      res.status(500).json({ error: 'Error sending message', details: error.message });
     }
   } else {
     res.status(405).json({ error: 'Method not allowed' });
